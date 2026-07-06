@@ -46,6 +46,15 @@ private:
 			return true;
 	}
 
+	static bool isDateInPeriod(Date date, Period period)
+	{
+		return !(date.before(period.startDate) || date.after(period.endDate));
+	}
+
+	bool isDateInPeriod(Date date)
+	{
+		return isDateInPeriod(date, *this);
+	}
 
 	bool isOverLapWith(Period period)
 	{

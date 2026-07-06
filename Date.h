@@ -427,7 +427,7 @@ public:
 		return (date1.year < date2.year ? true : (date1.year == date2.year ? (date1.month < date2.month ? true : (date1.month == date2.month ? (date1.day < date2.day) : false)) : false));
 	}
 
-	bool befor(Date date)
+	bool before(Date date)
 	{
 		return isDate1BeforeDate2(*this, date);
 	}
@@ -444,7 +444,7 @@ public:
 
 	static bool isDate1AfterDate2(Date date1, Date date2)
 	{
-		return !isDate1EqualDate2(date1, date2) && !isDate1AfterDate2(date1, date2);
+		return !isDate1EqualDate2(date1, date2) && !isDate1BeforeDate2(date1, date2);
 	}
 
 	bool after(Date date)
