@@ -89,7 +89,7 @@ This is a header-only library, so no compilation or linking step is required.
 ### Option 1: Copy the headers
 
 Copy the required .h files into your project:
-
+```
 YourProject/
 ├── main.cpp
 └── include/
@@ -98,6 +98,7 @@ YourProject/
     ├── Period.h
     ├── String.h
     └── Util.h
+```
 Then include the headers you need:
 
 #include "Date.h"
@@ -207,7 +208,7 @@ Then copy the header files into your project or add the repository's directory t
 ---
 
 ## 🗂️ Project Structure
-
+```
 .
 ├── Date.h
 ├── InputValidation.h
@@ -215,6 +216,7 @@ Then copy the header files into your project or add the repository's directory t
 ├── String.h
 ├── Util.h
 └── README.md
+```
 The library intentionally keeps each utility in a separate header so you can include only what your project needs.
 
 ---
