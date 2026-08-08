@@ -36,7 +36,7 @@ public:
 
 
 
-	static vector <string> split(string str, string delimiter)
+	static vector <string> split(string str, string delimiter = " ")
 	{
 		vector<string> vWords;
 		string word;
@@ -59,7 +59,7 @@ public:
 		return vWords;
 	}
 
-	vector <string> split(string delimiter)
+	vector <string> split(string delimiter = " ")
 	{
 		return split(_value, delimiter);
 	}

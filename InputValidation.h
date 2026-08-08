@@ -9,16 +9,7 @@ using namespace std;
 class InputValidation
 {
 public:
-	static bool isNumberBetween(int number, int from, int to)
-	{
-		if (from > to)
-		{
-			Util::swap(from, to);
-		}
-		return (number >= from && number <= to);
-	}
-
-	static bool inNumberBetween(float number, float from, float to)
+	static template <typename T> T isNumberBetween(T number, T from, T to)
 	{
 		if (from > to)
 		{
@@ -36,9 +27,9 @@ public:
 		return !(date.before(dateFrom) || date.after(dateTo));
 	}
 
-	static int readIntNumber(string errorMessage = "Invalid number, enter again : ")
+	static template <typename T> T readNumber(string errorMessage = "Invalid number, enter again : ")
 	{
-		int number;
+		T number;
 		while (!(cin >> number))
 		{
 			cin.clear();
@@ -48,59 +39,13 @@ public:
 		return number;
 	}
 
-	static int readIntNumberBetween(string errorMessage = "Invalid number, enter again : ", int from, int to)
+	static template <typename T> T readNumberBetween(string errorMessage = "Invalid number, enter again : ", T from, T to)
 	{
-		int number = readIntNumber();
+		T number = readNumber<T>();
 		while (!isNumberBetween(number, from, to))
 		{
 			cout << errorMessage;
-			number = readIntNumber();
-		}
-		return number;
-	}
-
-	static float readFloatNumber(string errorMessage = "Invalid number, enter again : ")
-	{
-		float number;
-		while (!(cin >> number))
-		{
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			cout << errorMessage;
-		}
-		return number;
-	}
-
-	static float readFloatNumberBetween(string errorMessage = "Invalid number, enter again : ", float from, float to)
-	{
-		float number = readFloatNumber();
-		while (!isNumberBetween(number, from, to))
-		{
-			cout << errorMessage;
-			number = readFloatNumber();
-		}
-		return number;
-	}
-
-	static double readDoubleNumber(string errorMessage = "Invalid number, enter again : ")
-	{
-		double number;
-		while (!(cin >> number))
-		{
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			cout << errorMessage;
-		}
-		return number;
-	}
-
-	static double readDoubleNumberBetween(string errorMessage = "Invalid number, enter again : ", double from, double to)
-	{
-		double number = readDoubleNumber();
-		while (!isNumberBetween(number, from, to))
-		{
-			cout << errorMessage;
-			number = readDoubleNumber();
+			number = readNumber<T>();
 		}
 		return number;
 	}
